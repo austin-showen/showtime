@@ -15,7 +15,6 @@
 ### **_Technologies_**
 
 - Django
-  - User Authentication
 - PostgreSQL
 - Python
 - JavaScript
@@ -26,12 +25,13 @@
 
 ### **_About the App_**
 
-#### Showtime is a web application designed as a central resource to help users track currently running Broadway shows. Once authenticated, users can review shows that they have seen or favorite shows that they want to attend. Users may also view details on Broadway venues, including a list of all shows currently playing at each venue.
+#### Showtime is a Django web application designed as a central resource to help users track currently running Broadway shows. Once authenticated, users can review shows that they have seen and favorite shows that they want to attend. Users may also view details on Broadway venues, including a list of all shows currently playing at each venue.
 
-#### Specifications:
+#### Specifications (MVP):
 
 - The home page provides the option to log in via Django authentication.
-- Once authenticated, users can view a list of all currently running Broadway shows.
+- Once authenticated, users can view an index of all currently running Broadway shows.
+- Authenticated users can also view an index of Broadway theater venues.
 - The detail page for each show lists basic details (title, director, location) and links to the detail page for the venue.
 - The detail page for each venue displays the name and address of the venue, as well as a list of all shows currently running there.
 - Authenticated users can leave reviews of shows they have seen. Reviews are visible to all authenticated users.
@@ -43,7 +43,7 @@
 #### To be added
 ---
 
-### **_Stretch Goals_**
+### **_Stretch Goals (Post-MVP)_**
 
 - [ ] The venue details page connects to an API to show the location of the venue on a map.
 - [ ] On the show index page, users can search for a show by title.
