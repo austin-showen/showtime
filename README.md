@@ -4,6 +4,8 @@
 
 ### Authors: [Cody Garcia](https://github.com/popgoesthecultureshock), [Austin Showen](https://github.com/austin-showen), [Jacquelyn Waller](https://github.com/Mwaller129)
 
+### [Trello Board](https://trello.com/b/yoiRt2Xh/showtime)
+
 ---
 
 ### **_Description_**
