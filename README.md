@@ -40,6 +40,11 @@
 
 ---
 
+### **_Entity Relationship Diagram_**
+
+#### ![Showtime ERD](/assets/Showtime%20ERD.png)
+---
+
 ### **_Wireframes_**
 
 #### ![A wireframe of the homepage](/assets/showtime_home.jpeg)
