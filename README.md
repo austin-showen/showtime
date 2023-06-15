@@ -38,9 +38,19 @@
 
 ---
 
-### **_Screenshots_**
+### **_Wireframes_**
 
-#### To be added
+#### ![A wireframe of the homepage](/assets/showtime_home.jpeg)
+#### The Showtime homepage
+
+#### ![A wireframe of the user's show list](/assets/user_show_list.jpeg)
+#### The user's list of shows
+
+#### ![A wireframe of the user's add review page](/assets/user_show_seen.jpeg)
+#### The form to add a review of a show
+
+#### ![A wireframe of the user's add show to wishlist page](/assets/user_show_desire.jpeg)
+#### The form to add a show to a user's wishlist
 ---
 
 ### **_Stretch Goals (Post-MVP)_**
@@ -49,7 +59,7 @@
 - [ ] On the show index page, users can search for a show by title.
 - [ ] On the venue index page, users can search for a venue by name.
 - [ ] On the show index page, shows that are no longer running are displayed at the bottom of the list and marked as inactive.
-- [ ] The show index and venue index pages are limited to 10 entries on the first page, with additional pages added as necessary.
+- [ ] The show index and venue index pages are limited to a certain number of entries on the first page, with additional pages added as necessary.
 
 ---
 
