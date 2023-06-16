@@ -18,28 +18,64 @@
     <nav>
       <div class="nav-wrapper">
         <div></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="S">S</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="H">H</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="O">O</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="W">W</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="T">T</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="I">I</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="M">M</a></div>
-        <div class="letters"><a href="{% url 'home' %}" class="letters" id="E">E</a></div>
-        <ul class="right">
-          <!-- <li><a href="{% url 'home' %}">About</a></li> -->
-          {% if user.is_authenticated %}
-          <!-- <li><a href="{% url 'home' %}">I want to see...</a></li>
+        <div class="letters" id="S">S</div>
+        <div class="hide"><a href="{% url 'home' %}">About</a></div>
+        {% if user.is_authenticated %}
+        <div class="letters">H</div>
+        <div class="hide"><a href="{% url 'home' %}">I want to see...</a></div>
+        {% else %}
+        <div class="loggedOut">H</div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="letters">O</div>
+        <div class="hide"><a href="{% url 'home' %}">I already saw...</a></div>
+        {% else %}
+        <div class="loggedOut">O</div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="letters">W</div>
+        <div class="hide"><a href="{% url 'home' %}">My List</a></div>
+        {% else %}
+        <div class="loggedOut">W</div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="letters">T</div>
+        <div class="hide"><a href="{% url 'home' %}">Reviews</a></div>
+        {% else %}
+        <div class="loggedOut">T</div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="letters">I</div>
+        <div class="hide"><a href="{% url 'home' %}">Theatre History</a></div>
+        {% else %}
+        <div class="loggedOut">I</div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="letters">M</div>
+        <div class="hide"><a href="{% url 'home' %}">About the Developers</a></div>
+        {% else %}
+        <div class="letters">M</div>
+        <div class="hide"><a href="{% url 'signup' %}">Sign Up</a></div>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="letters">E</div>
+        <div class="hide"><a href="{% url 'logout' %}">Logout</a></div>
+        {% else %}
+        <div class="letters">E</div>
+        <div class="hide"><a href="{% url 'login' %}">Log In</a></div>
+        {% endif %}
+        <!-- <li><a href="{% url 'home' %}">About</a></li> -->
+        {% if user.is_authenticated %}
+        <!-- <li><a href="{% url 'home' %}">I want to see...</a></li>
           <li><a href="{% url 'home' %}">I already saw...</a></li>
           <li><a href="{% url 'home' %}">My List</a></li>
           <li><a href="{% url 'home' %}">View All My Cats</a></li>
           <li><a href="{% url 'logout' %}">Log Out</a></li> -->
-          {% else %}
-          <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        {% else %}
+        <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
           <li><a href="{% url 'login' %}">Log In</a></li> -->
 
-          {% endif %}
-        </ul>
+        {% endif %}
       </div>
     </nav>
   </header>
