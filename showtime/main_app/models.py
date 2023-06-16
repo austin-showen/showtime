@@ -1,6 +1,8 @@
 from django.db import models
+from datetime import date
 
 class Show(models.Model):
+    name = models.CharField(max_length=100)
     theater = models.CharField(max_length=100)
     date = models.DateField('Show Date')
     review = models.TextField(max_length=250)
