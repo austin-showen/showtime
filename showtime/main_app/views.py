@@ -55,6 +55,15 @@ def add_photo(request, show_id):
             print(e)
     return redirect("detail", cat_id=cat_id)
 
+# def seen(request):
+#     if show.seen == true:
+#         seen.save()
+#     return render(request, 'seen.html', )
+
+# def wishlist(request):
+#     if show.wishlist == true:
+#         wishlist.save()
+#     return render(request, 'wishlist.html', )
   
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
