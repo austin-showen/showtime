@@ -7,16 +7,18 @@ from django.contrib.auth.models import User
 class Theater(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=250)
-   
 
     def __str__(self):
-        return f"{self.name} ({self.date})"
+        return f"{self.name}"
+
 
 class Show(models.Model):
     name = models.CharField(max_length=100)
     theater = models.ForeignKey(Theater, on_delete=models.CASCADE)
     date = models.DateField('Show Date')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    seen = models.BooleanField()
+    wishlist = models.BooleanField()
 
     def __str__(self):
         return f"{self.name} ({self.id})"
@@ -33,9 +35,9 @@ class Photo(models.Model):
         return f"Photo for show_id: {self.show_id} @{self.url}"
 
     def get_absolute_url(self):
-       return reverse('detail', kwargs={'show_id': self.id})
+        return reverse('detail', kwargs={'show_id': self.id})
 
-      
+
 class Review(models.Model):
     date = models.DateField('Review Date')
     description = models.TextField(max_length=250)
@@ -43,4 +45,3 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.get_review_display()} on {self.date}"
-
