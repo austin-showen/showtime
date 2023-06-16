@@ -17,27 +17,26 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <ul>
-          <li><a href="{% url 'home' %}" class="letters" id="S">S</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="H">H</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="O">O</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="W">W</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="T">T</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="I">I</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="M">M</a></li>
-          <li><a href="{% url 'home' %}" class="letters" id="E">E</a></li>
-        </ul>
+        <div></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="S">S</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="H">H</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="O">O</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="W">W</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="T">T</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="I">I</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="M">M</a></div>
+        <div class="letters"><a href="{% url 'home' %}" class="letters" id="E">E</a></div>
         <ul class="right">
-          <li><a href="{% url 'home' %}">About</a></li>
+          <!-- <li><a href="{% url 'home' %}">About</a></li> -->
           {% if user.is_authenticated %}
-          <li><a href="{% url 'home' %}">I want to see...</a></li>
+          <!-- <li><a href="{% url 'home' %}">I want to see...</a></li>
           <li><a href="{% url 'home' %}">I already saw...</a></li>
           <li><a href="{% url 'home' %}">My List</a></li>
           <li><a href="{% url 'home' %}">View All My Cats</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li> -->
           {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
+          <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li> -->
 
           {% endif %}
         </ul>
