@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main_app.models import Show
@@ -6,7 +5,6 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 
 
 
@@ -21,9 +19,8 @@ def shows_index(request):
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, 'shows/details.html', {
-        'shows': show
-    })
+    return render(request, "shows/details.html", {"shows": show})
+
 
 def signup(request):
     error_message = ""
