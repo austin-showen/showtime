@@ -1,23 +1,22 @@
-
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from main_app.models import Show
 
 
 def home(request):
     return render(request, "home.html")
 
+
 def shows_index(request):
     shows = Show.objects.all()
-    return render(request, 'shows/index.html', {
-        'shows' : shows
-    })
+    return render(request, "shows/index.html", {"shows": shows})
+
 
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, 'shows/details.html', {
-        'shows': show
-    })
+    return render(request, "shows/details.html", {"shows": show})
+
 
 def signup(request):
     error_message = ""
@@ -32,4 +31,3 @@ def signup(request):
     form = UserCreationForm()
     context = {"form": form, "error_message": error_message}
     return render(request, "registration/signup.html", context)
-
