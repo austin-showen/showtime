@@ -2,56 +2,55 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>ShowTime</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="{% static 'css/style.css' %}"
-    />
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
-  </head>
 
-  <body>
-    <header class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <ul>
-            <li>
-              <a href="{% url 'home' %}" class="left brand-logo"
-                >&nbsp;&nbsp;ShowTime</a
-              >
-            </li>
-          </ul>
-          <ul class="right">
-            <li><a href="{% url 'home' %}">About</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{% url 'home' %}">I want to see...</a></li>
-            <li><a href="{% url 'home' %}">I already saw...</a></li>
-            <li><a href="{% url 'home' %}">My List</a></li>
-            <li><a href="{% url 'home' %}">View All My Cats</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-            {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ShowTime</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+</head>
 
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
-      <div class="right">
-        All Rights Reserved, &copy; 2022 Cat Collector &nbsp;
+<body>
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <ul>
+          <li><a href="{% url 'home' %}" class="letters" id="S">S</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="H">H</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="O">O</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="W">W</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="T">T</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="I">I</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="M">M</a></li>
+          <li><a href="{% url 'home' %}" class="letters" id="E">E</a></li>
+        </ul>
+        <ul class="right">
+          <li><a href="{% url 'home' %}">About</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'home' %}">I want to see...</a></li>
+          <li><a href="{% url 'home' %}">I already saw...</a></li>
+          <li><a href="{% url 'home' %}">My List</a></li>
+          <li><a href="{% url 'home' %}">View All My Cats</a></li>
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          {% else %}
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+          <li><a href="{% url 'login' %}">Log In</a></li>
+
+          {% endif %}
+        </ul>
       </div>
-    </footer>
-  </body>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}
+    {% endblock %}
+  </main>
+  <footer class="page-footer">
+    <div class="right">All Rights Reserved, &copy; 2023 ShowTime &nbsp;</div>
+  </footer>
+</body>
+
 </html>
