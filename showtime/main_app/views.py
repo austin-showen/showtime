@@ -26,7 +26,7 @@ def shows_index(request):
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, "shows/details.html", {"shows": show})
+    return render(request, "shows/detail.html", {"shows": show})
 
 
 def signup(request):
@@ -92,4 +92,5 @@ def theaters_index(request):
 @login_required
 def theaters_detail(request, theater_id):
     theater = Theater.objects.get(id=theater_id)
-    return render(request, 'theaters/detail.html', {'theater': theater})
+    shows = Show.objects.filter(theater=theater_id)
+    return render(request, 'theaters/detail.html', {'theater': theater, 'shows': shows})

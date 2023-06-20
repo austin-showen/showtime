@@ -2,20 +2,5 @@
 
 <h1>{{ show.name }}</h1>
 
-{% for photo in show.photo_set.all %}
-<img class="card-panel" src="{{photo.url}}" />
-{% empty %}
-<div class="card-panel">No Photos Uploaded</div>
-{% endfor %} {% endblock %}
 
-<form
-  action="{% url 'add_photo' show.id %}"
-  enctype="multipart/form-data"
-  method="POST"
-  class="card-panel"
->
-  {% csrf_token %}
-  <input type="file" name="photo-file" />
-  <br /><br />
-  <button type="submit" class="btn">Upload Photo</button>
-</form>
+{% endblock %}
