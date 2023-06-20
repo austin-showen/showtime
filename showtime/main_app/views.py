@@ -60,25 +60,50 @@ def add_photo(request, show_id):
             print(e)
     return redirect("detail", cat_id=cat_id)
 
-# def seen(request):
-#     if show.seen == true:
-#         seen.save()
-#     return render(request, 'seen.html', )
 
-# def wishlist(request):
-#     if show.wishlist == true:
-#         wishlist.save()
-#     return render(request, 'wishlist.html', )
+@login_required
+def seen_index(request):
+    user = request.user
+    shows = user.seen.all()
+    return render(request, 'shows/seen.html', {'shows': shows})
+
+
+@login_required
+def seen_add(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.seen.add(show)
+    return redirect('seen_index')
+
+
+@login_required
+def wishlist_index(request):
+    user = request.user
+    shows = user.wishlist.all()
+    return render(request, 'shows/wishlist.html', {'shows': shows})
+
+
+@login_required
+def wishlist_add(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.wishlist.add(show)
+    return redirect('wishlist_index')
   
+
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
     fields = '__all__'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
 class ShowUpdate(LoginRequiredMixin, UpdateView):
     model = Show
     fields = ['date', 'review', 'theater']
+
+
 class ShowDelete(LoginRequiredMixin, DeleteView):
     model = Show
     success_url = '/shows'
