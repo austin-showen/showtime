@@ -64,18 +64,6 @@
         <div class="letters">E</div>
         <div class="hide"><a href="{% url 'login' %}">Log In</a></div>
         {% endif %}
-        <!-- <li><a href="{% url 'home' %}">About</a></li> -->
-        {% if user.is_authenticated %}
-        <!-- <li><a href="{% url 'home' %}">I want to see...</a></li>
-          <li><a href="{% url 'home' %}">I already saw...</a></li>
-          <li><a href="{% url 'home' %}">My List</a></li>
-          <li><a href="{% url 'home' %}">View All My Cats</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li> -->
-        {% else %}
-        <!-- <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li> -->
-
-        {% endif %}
       </div>
     </nav>
   </header>
