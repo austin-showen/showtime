@@ -64,7 +64,7 @@ def add_photo(request, show_id):
 def seen_index(request):
     user = request.user
     shows = user.seen.all()
-    return render(request, 'shows/seen.html', {'shows': shows})
+    return render(request, 'shows/index.html', {'shows': shows})
 
 
 @login_required
@@ -87,7 +87,7 @@ def seen_delete(request, show_id):
 def wishlist_index(request):
     user = request.user
     shows = user.wishlist.all()
-    return render(request, 'shows/wishlist.html', {'shows': shows})
+    return render(request, 'shows/index.html', {'shows': shows})
 
 
 @login_required
