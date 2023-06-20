@@ -6,13 +6,14 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main_app.models import Show
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from main_app.models import Show, Photo, Theater
+from main_app.models import Show, Photo, Theater, Review
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
-    return render(request, "home.html")
+    theaters = Theater.objects.all()
+    return render(request, 'home.html', {'theaters': theaters})
 
 
 @login_required
@@ -26,7 +27,7 @@ def shows_index(request):
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, "shows/detail.html", {"shows": show})
+    return render(request, "shows/detail.html", {"show": show})
 
 
 def signup(request):
@@ -59,25 +60,64 @@ def add_photo(request, show_id):
             print(e)
     return redirect("detail", cat_id=cat_id)
 
-# def seen(request):
-#     if show.seen == true:
-#         seen.save()
-#     return render(request, 'seen.html', )
+@login_required
+def seen_index(request):
+    user = request.user
+    shows = user.seen.all()
+    return render(request, 'shows/seen.html', {'shows': shows})
 
-# def wishlist(request):
-#     if show.wishlist == true:
-#         wishlist.save()
-#     return render(request, 'wishlist.html', )
-  
+
+@login_required
+def seen_add(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.seen.add(show)
+    return redirect('seen_index')
+
+
+@login_required
+def seen_delete(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.seen.remove(show)
+    return redirect('seen_index')
+
+
+@login_required
+def wishlist_index(request):
+    user = request.user
+    shows = user.wishlist.all()
+    return render(request, 'shows/wishlist.html', {'shows': shows})
+
+
+@login_required
+def wishlist_add(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.wishlist.add(show)
+    return redirect('wishlist_index')
+
+
+@login_required
+def wishlist_delete(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.wishlist.remove(show)
+    return redirect('wishlist_index')
+
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
     fields = '__all__'
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
 class ShowUpdate(LoginRequiredMixin, UpdateView):
     model = Show
     fields = ['date', 'review', 'theater']
+
+
 class ShowDelete(LoginRequiredMixin, DeleteView):
     model = Show
     success_url = '/shows'
@@ -94,3 +134,18 @@ def theaters_detail(request, theater_id):
     theater = Theater.objects.get(id=theater_id)
     shows = Show.objects.filter(theater=theater_id)
     return render(request, 'theaters/detail.html', {'theater': theater, 'shows': shows})
+
+class ReviewCreate(LoginRequiredMixin, CreateView):
+    model = Review
+    fields = '__all__'
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
+    model = Review
+    fields = ['date', 'description', 'show']
+
+class ReviewDelete(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = 'shows/<int:show_id>/'
