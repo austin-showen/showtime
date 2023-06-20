@@ -82,7 +82,14 @@ class ShowDelete(LoginRequiredMixin, DeleteView):
     model = Show
     success_url = '/shows'
 
+
 @login_required
 def theaters_index(request):
     theaters = Theater.objects.all()
     return render(request, 'theaters/index.html', {'theaters': theaters})
+
+
+@login_required
+def theaters_detail(request, theater_id):
+    theater = Theater.objects.get(id=theater_id)
+    return render(request, 'theaters/detail.html', {'theater': theater})
