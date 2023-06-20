@@ -12,4 +12,6 @@ urlpatterns = [
     #  path('user/<int:user_id>/wishlist', views.wishlist, name='wishlist'),
      path('accounts.signup/', views.signup, name='signup'),
      path('shows/<int:show_id>/add_photo/', views.add_photo, name='add_photo'),
+     path('theaters/', views.theaters_index, name='theaters_index'),
+     path('theaters/<int:theater_id>', views.theaters_detail, name='theaters_detail')
 ]
