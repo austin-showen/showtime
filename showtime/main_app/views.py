@@ -77,6 +77,14 @@ def seen_add(request, show_id):
 
 
 @login_required
+def seen_delete(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.seen.remove(show)
+    return redirect('seen_index')
+
+
+@login_required
 def wishlist_index(request):
     user = request.user
     shows = user.wishlist.all()
@@ -90,6 +98,13 @@ def wishlist_add(request, show_id):
     user.wishlist.add(show)
     return redirect('wishlist_index')
   
+
+@login_required
+def wishlist_delete(request, show_id):
+    user = request.user
+    show = Show.objects.get(id=show_id)
+    user.wishlist.remove(show)
+    return redirect('wishlist_index')
 
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
