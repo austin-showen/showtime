@@ -22,19 +22,19 @@
         <div class="hide"><a href="{% url 'home' %}">About</a></div>
         {% if user.is_authenticated %}
         <div class="letters">H</div>
-        <div class="hide"><a href="{% url 'home' %}">I want to see...</a></div>
+        <div class="hide"><a href="{% url 'wishlist_add' %}">I want to see...</a></div>
         {% else %}
         <div class="loggedOut">H</div>
         {% endif %}
         {% if user.is_authenticated %}
         <div class="letters">O</div>
-        <div class="hide"><a href="{% url 'home' %}">I already saw...</a></div>
+        <div class="hide"><a href="{% url 'seen_add' %}" class="linktext">I already saw...</a></div>
         {% else %}
         <div class="loggedOut">O</div>
         {% endif %}
         {% if user.is_authenticated %}
         <div class="letters">W</div>
-        <div class="hide"><a href="{% url 'home' %}">My List</a></div>
+        <div class="hide"><a href="{% url 'shows_index' %}">My List</a></div>
         {% else %}
         <div class="loggedOut">W</div>
         {% endif %}

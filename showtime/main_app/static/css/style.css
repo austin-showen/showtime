@@ -63,6 +63,10 @@ div.loggedOut {
   width: 15vmin;
 }
 
+a.linktext {
+  text-align: center;
+}
+
 .table-of-shows {
   display: flex;
   flex-wrap: wrap;
