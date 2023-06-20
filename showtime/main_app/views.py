@@ -6,19 +6,23 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main_app.models import Show
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from main_app.models import Show, Photo
+from main_app.models import Show, Photo, Theater
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
     return render(request, "home.html")
+
+
 @login_required
 def shows_index(request):
     shows = Show.objects.all()
     return render(request, 'shows/index.html', {
         'shows' : shows
     })
+
+
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
@@ -78,3 +82,7 @@ class ShowDelete(LoginRequiredMixin, DeleteView):
     model = Show
     success_url = '/shows'
 
+@login_required
+def theaters_index(request):
+    theaters = Theater.objects.all()
+    return render(request, 'theaters/index.html', {'theaters': theaters})
