@@ -1,4 +1,1 @@
 .venv/
-main_app/__pycache__/
-showtime/__pycache__/
-showtime/.env
