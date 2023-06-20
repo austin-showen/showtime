@@ -12,7 +12,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
-    return render(request, "home.html")
+    theaters = Theater.objects.all()
+    return render(request, 'home.html', {'theaters': theaters})
 
 
 @login_required
@@ -26,7 +27,7 @@ def shows_index(request):
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, "shows/detail.html", {"shows": show})
+    return render(request, "shows/detail.html", {"show": show})
 
 
 def signup(request):
