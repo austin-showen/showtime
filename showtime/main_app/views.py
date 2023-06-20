@@ -6,23 +6,27 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main_app.models import Show
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from main_app.models import Show, Photo
+from main_app.models import Show, Photo, Theater, Review
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def home(request):
     return render(request, "home.html")
+
+
 @login_required
 def shows_index(request):
     shows = Show.objects.all()
     return render(request, 'shows/index.html', {
         'shows' : shows
     })
+
+
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, "shows/details.html", {"shows": show})
+    return render(request, "shows/detail.html", {"shows": show})
 
 
 def signup(request):
@@ -58,12 +62,12 @@ def add_photo(request, show_id):
 # def seen(request):
 #     if show.seen == true:
 #         seen.save()
-#     return render(request, 'seen.html', )
+#     return render(request, 'seen.html', {'shows' : show} )
 
 # def wishlist(request):
 #     if show.wishlist == true:
 #         wishlist.save()
-#     return render(request, 'wishlist.html', )
+#     return render(request, 'wishlist.html', {'shows' : show})
   
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
@@ -78,3 +82,30 @@ class ShowDelete(LoginRequiredMixin, DeleteView):
     model = Show
     success_url = '/shows'
 
+
+@login_required
+def theaters_index(request):
+    theaters = Theater.objects.all()
+    return render(request, 'theaters/index.html', {'theaters': theaters})
+
+
+@login_required
+def theaters_detail(request, theater_id):
+    theater = Theater.objects.get(id=theater_id)
+    shows = Show.objects.filter(theater=theater_id)
+    return render(request, 'theaters/detail.html', {'theater': theater, 'shows': shows})
+
+class ReviewCreate(LoginRequiredMixin, CreateView):
+    model = Review
+    fields = '__all__'
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
+    model = Review
+    fields = ['date', 'description', 'show']
+
+class ReviewDelete(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = 'shows/<int:show_id>/'
