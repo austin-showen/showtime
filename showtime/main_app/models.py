@@ -16,15 +16,11 @@ class Show(models.Model):
     name = models.CharField(max_length=100)
     theater = models.ForeignKey(Theater, on_delete=models.CASCADE)
     date = models.DateField('Show Date')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    seen = models.BooleanField()
-    wishlist = models.BooleanField()
+    seen = models.ManyToManyField(User, related_name='seen')
+    wishlist = models.ManyToManyField(User, related_name='wishlist')
 
     def __str__(self):
         return f"{self.name} ({self.id})"
-
-    # def get_absolute_url(self):
-    #     return reverse('detail', kwargs={'show_id': self.id})
 
 
 class Photo(models.Model):
