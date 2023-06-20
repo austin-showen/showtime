@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main_app.models import Show
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
-from main_app.models import Show, Photo, Theater
+from main_app.models import Show, Photo, Theater, Review
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -60,7 +60,6 @@ def add_photo(request, show_id):
             print(e)
     return redirect("detail", cat_id=cat_id)
 
-
 @login_required
 def seen_index(request):
     user = request.user
@@ -97,7 +96,7 @@ def wishlist_add(request, show_id):
     show = Show.objects.get(id=show_id)
     user.wishlist.add(show)
     return redirect('wishlist_index')
-  
+
 
 @login_required
 def wishlist_delete(request, show_id):
@@ -135,3 +134,18 @@ def theaters_detail(request, theater_id):
     theater = Theater.objects.get(id=theater_id)
     shows = Show.objects.filter(theater=theater_id)
     return render(request, 'theaters/detail.html', {'theater': theater, 'shows': shows})
+
+class ReviewCreate(LoginRequiredMixin, CreateView):
+    model = Review
+    fields = '__all__'
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ReviewUpdate(LoginRequiredMixin, UpdateView):
+    model = Review
+    fields = ['date', 'description', 'show']
+
+class ReviewDelete(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = 'shows/<int:show_id>/'
