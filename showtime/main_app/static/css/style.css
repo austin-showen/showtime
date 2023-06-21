@@ -22,7 +22,7 @@ footer.page-footer {
   background-color: yellow;
   margin:0;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 10px gray;
@@ -46,11 +46,6 @@ div.nav-wrapper, div.nav-wrapper a {
   text-align: center;
   font-weight: 800;
 }
-
-/* a {
-  height: 15vmin;
-  width: 15vmin;
-} */
 
 div.loggedOut {
   font-size: 12vmin;
@@ -114,6 +109,7 @@ a.linktext {
 
 .index-container td {
   padding: 10px;
+  height: 4vmin;
 }
 
 .index-container a {
@@ -156,4 +152,8 @@ a.linktext {
 .home-card a {
   text-decoration: none;
   color: black;
+}
+
+a {
+  text-decoration: none;
 }
