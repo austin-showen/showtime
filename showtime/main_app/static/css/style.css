@@ -19,6 +19,10 @@ footer.page-footer {
   flex-direction: row;
   background-color: yellow;
   margin:0;
+  justify-content: center;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
 }
 
 div.nav-wrapper, a {
@@ -28,13 +32,15 @@ div.nav-wrapper, a {
   /* font-size: 15vmin; */
   justify-content: space-around;
   align-items: center;
-  margin: 5vmin;
+  text-align: center;
 }
 .letters {
-  font-size: 15vmin;
+  font-size: 12vmin;
   height: 15vmin;
   width: 15vmin;
   justify-content: center;
+  text-align: center;
+  
 }
 a {
   height: 15vmin;
@@ -49,18 +55,23 @@ div.loggedOut {
 
 .hide {
   display: none;
-  font-size: 5vmin;
+  font-size: 4vmin;
+  z-index:2;
 }
 .letters:hover {
-  display: none;
+  display:none;
   height: 15vmin;
   width: 15vmin;
   background-color: burlywood;
 }
 .letters:hover + .hide{
-  display: flex;
+  display:block;
   height: 15vmin;
   width: 15vmin;
+}
+.hover-trick {
+  position:relative;
+  z-index: 3;
 }
 
 a.linktext {
