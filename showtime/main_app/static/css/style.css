@@ -3,6 +3,8 @@ body {
   min-height: 100vh;
   flex-direction: column;
   margin: 0px;
+  font-family: 'PT Serif', serif;
+
 }
 
 main {
@@ -34,20 +36,22 @@ div.nav-wrapper, a {
   align-items: center;
   text-align: center;
 }
+
 .letters {
   font-size: 12vmin;
   height: 15vmin;
   width: 15vmin;
   justify-content: center;
   text-align: center;
-  
 }
+
 a {
   height: 15vmin;
   width: 15vmin;
 }
+
 div.loggedOut {
-  font-size: 15vmin;
+  font-size: 12vmin;
   height: 15vmin;
   width: 15vmin;
   justify-content: center;
@@ -58,17 +62,22 @@ div.loggedOut {
   font-size: 4vmin;
   z-index:2;
 }
+
 .letters:hover {
   display:none;
   height: 15vmin;
   width: 15vmin;
   background-color: burlywood;
 }
+
 .letters:hover + .hide{
-  display:block;
+  display: flex;
   height: 15vmin;
   width: 15vmin;
+  justify-content: center;
+  align-items: center;
 }
+
 .hover-trick {
   position:relative;
   z-index: 3;
