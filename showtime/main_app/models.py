@@ -47,4 +47,4 @@ class Review(models.Model):
         return f"Thanks for Reviewing {self.show_id} on {self.date}"
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={self.show_id})
+        return reverse('detail', kwargs={'show_id':self.show_id})
