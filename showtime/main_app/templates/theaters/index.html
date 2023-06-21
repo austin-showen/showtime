@@ -8,15 +8,15 @@
     <h3 class="theater-title">{{theater.location|cut:", NEW YORK, NY"}}</h3>
     <br>
     <h3>Currently playing here:</h3>
-    {% for show in shows %}
-    {% if show.theater == theater %}
+    <div class="theater-shows">
+    {% for show in theater.show_set.all %}
       <div class="theater-show-card">
         <a href="{% url 'detail' show.id %}"><img src="{{show.playbill_url}}"></a>
       </div>
-      {% endif %}
     {% empty %}
-      <h3>No shows here!</h3>
+      <h3>Nothing!</h3>
     {% endfor %}
+    </div>
   </div>
 {% empty %}
 <h1>No theaters currently in our database!</h1>

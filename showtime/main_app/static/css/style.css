@@ -150,6 +150,7 @@ a.linktext {
 .home-title, .theater-title {
   text-transform: uppercase;
   margin-bottom: -18px;
+  text-align: center;
 }
 
 .home-card a {
@@ -157,7 +158,17 @@ a.linktext {
   color: black;
 }
 
-.theater-show-card, .theater-show-card img {
+.theater-shows {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.theater-show-card {
   width: 100px;
-  margin-bottom: 20px;
+  margin: 0 20px 10px 10px;
+}
+
+.theater-show-card img {
+  width: 100%;
 }
