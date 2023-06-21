@@ -1,14 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Shows you've seen:</h1>
-{% for show in shows %}
-<h2>{{show.name}}</h2>
-{% endfor %}
 
-<h1>Shows you want to see:</h1>
-{% for show in shows %}
-<h2>{{show.name}}</h2>
-{% endfor %}
+<div class='index-container'>
+  <table>
+    <tr>
+      <th>Shows You've Seen</th>
+    </tr>
+    {% for show in seen %}
+    <tr>
+      <td>{{show.name}}
+        <br>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="{% url 'seen_delete' show.id %}">Remove</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td>You haven't seen any shows yet!</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <table>
+    <tr>
+      <th>Shows You Want to See</th>
+    </tr>
+    {% for show in wishlist %}
+    <tr>
+      <td>{{show.name}}</td>
+    </tr>
+    <tr>
+      <td><a href="{% url 'wishlist_delete' show.id %}">Remove</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td>You haven't wishlisted any shows yet!</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
 
 {% endblock %}
