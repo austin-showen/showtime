@@ -24,5 +24,10 @@
 <h2>Monday through Saturday: 10 am to 8:30 pm</h2>
 <h2>Sunday: Noon to 6 pm</h2>
 
+{% for review in reviews %}
+{{ review }}
+{% empty %}
+No reviews yet!
+{% endfor %}
 
 {% endblock %}
