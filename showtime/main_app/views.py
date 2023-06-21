@@ -113,7 +113,7 @@ def wishlist_delete(request, show_id):
 
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
-    fields = '__all__'
+    fields = ['name', 'theater', 'date']
     success_url = '/shows/index'
 
     def form_valid(self, form):
