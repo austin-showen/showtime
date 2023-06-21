@@ -13,14 +13,20 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
     theaters = Theater.objects.all()
-    return render(request, 'home.html', {'theaters': theaters})
+    shows = Show.objects.all()
+    return render(request, 'home.html', {'theaters': theaters, 'shows': shows})
 
 
 @login_required
 def shows_index(request):
+    user = request.user
     shows = Show.objects.all()
+    seen = user.seen.all()
+    wishlist = user.wishlist.all()
     return render(request, 'shows/index.html', {
-        'shows' : shows
+        'shows': shows,
+        'seen': seen,
+        'wishlist': wishlist
     })
 
 
@@ -60,11 +66,11 @@ def add_photo(request, show_id):
             print(e)
     return redirect("detail", cat_id=cat_id)
 
-@login_required
-def seen_index(request):
-    user = request.user
-    shows = user.seen.all()
-    return render(request, 'shows/seen.html', {'shows': shows})
+# @login_required
+# def seen_index(request):
+#     user = request.user
+#     shows = user.seen.all()
+#     return render(request, 'shows/seen.html', {'shows': shows})
 
 
 @login_required
@@ -72,7 +78,7 @@ def seen_add(request, show_id):
     user = request.user
     show = Show.objects.get(id=show_id)
     user.seen.add(show)
-    return redirect('seen_index')
+    return redirect('shows_index')
 
 
 @login_required
@@ -80,14 +86,14 @@ def seen_delete(request, show_id):
     user = request.user
     show = Show.objects.get(id=show_id)
     user.seen.remove(show)
-    return redirect('seen_index')
+    return redirect('shows_index')
 
 
-@login_required
-def wishlist_index(request):
-    user = request.user
-    shows = user.wishlist.all()
-    return render(request, 'shows/wishlist.html', {'shows': shows})
+# @login_required
+# def wishlist_index(request):
+#     user = request.user
+#     shows = user.wishlist.all()
+#     return render(request, 'shows/wishlist.html', {'shows': shows})
 
 
 @login_required
@@ -95,7 +101,7 @@ def wishlist_add(request, show_id):
     user = request.user
     show = Show.objects.get(id=show_id)
     user.wishlist.add(show)
-    return redirect('wishlist_index')
+    return redirect('shows_index')
 
 
 @login_required
@@ -103,11 +109,13 @@ def wishlist_delete(request, show_id):
     user = request.user
     show = Show.objects.get(id=show_id)
     user.wishlist.remove(show)
-    return redirect('wishlist_index')
+    return redirect('shows_index')
 
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
-    fields = '__all__'
+    fields = ['name', 'theater', 'date']
+    success_url = '/shows/index'
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
