@@ -22,7 +22,7 @@
         <div class="hide"><a href="{% url 'home' %}">About</a></div>
         {% if user.is_authenticated %}
         <div class="letters">H</div>
-        <div class="hide"><a href="{% url 'home' %}">I want to see...</a></div>
+        <div class="hide"><a href="{% url 'index' %}">I want to see...</a></div>
         {% else %}
         <div class="loggedOut">H</div>
         {% endif %}

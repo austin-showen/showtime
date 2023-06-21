@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,15 +8,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shows</title>
+  {% for show in shows %}
+  <div class="card"></div>
+    <a href="{% url 'detail' show.id %}"></a>
+    <div class="card-content">
+      <span class="card title">{{ show.name }}</span>
+      <p>Date: {{ show.date }}</p>
+      <p> Theater: {{ show.theater }}</p>
+      <p>Reviews: {{ show.review }}</p>
+    {% endfor %}
+    </div>
 </head>
-
-<body>
-
-</body>
 
 </html>
 
-{% extends 'base.html' %}
+
 {% block content %}
 
 
