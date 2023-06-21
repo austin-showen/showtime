@@ -147,3 +147,6 @@ class ReviewUpdate(LoginRequiredMixin, UpdateView):
 class ReviewDelete(LoginRequiredMixin, DeleteView):
     model = Review
     success_url = 'shows/<int:show_id>/'
+
+def about(request):
+    return render(request, 'about.html')

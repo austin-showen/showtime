@@ -7,14 +7,18 @@
 
     {% for show in shows %}
     <div class="home-card">
-        <a href="{% url 'detail' show.id %}"><h3 class="home-title">{{show.name}}</h3></a>
-        <a href="{% url 'detail' show.id %}"><h3>{{show.theater}}</h3></a>
-        <img src="{{show.playbill_url}}">
+        <a href="{% url 'detail' show.id %}">
+            <h3 class="home-title">{{show.name}}</h3>
+        </a>
+        <a href="{% url 'detail' show.id %}">
+            <h3>{{show.theater}}</h3>
+        </a>
+        <a href="{% url 'detail' show.id %}"><img src="{{show.playbill_url}}"></a>
     </div>
     {% empty %}
     <h1>No shows currently available.</h1>
     {% endfor %}
-    
+
     {% else %}
     <h1>To use ShowTime, please <a href="{% url 'signup' %}">Sign Up</a> or <a href="{% url 'login' %}">Log In.</a></h1>
     {% endif %}
