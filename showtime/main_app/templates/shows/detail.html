@@ -26,10 +26,19 @@
 
 
 {% for review in reviews %}
-{{ review }}
+<div class="card">
+    <div class="card-content">
+        <span class="card-title"> {{ review }}</span>
+        <p> Date:{{ review.date }}</p>
+        <p> Description: {{review.description | linebreaks }}</p>
+    </div>
+    
+</div>
 {% empty %}
 No reviews yet!
 {% endfor %}
+  
+
 
 
 {% endblock %}
