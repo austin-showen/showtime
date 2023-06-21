@@ -25,6 +25,8 @@ footer.page-footer {
   width: 100vw;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 10px gray;
+  height: 20vmin;
 }
 
 div.nav-wrapper, a {
@@ -42,18 +44,23 @@ div.nav-wrapper, a {
   width: 15vmin;
   justify-content: center;
   text-align: center;
+  font-weight: 800;
 }
 
-a {
+/* a {
   height: 15vmin;
   width: 15vmin;
-}
+} */
 
 div.loggedOut {
   font-size: 12vmin;
   height: 15vmin;
   width: 15vmin;
   justify-content: center;
+}
+
+.loggedOut {
+  font-weight: 800;
 }
 
 .hide {

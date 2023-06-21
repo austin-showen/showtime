@@ -36,7 +36,9 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <a href="{% url 'home' %}" class="linktext">
+
+        <a href="{% url 'seen_form' %}" class="linktext">
+
           <div class="hover-trick">
             <div class="letters">O</div>
             <div class="hide">I already saw...</div>

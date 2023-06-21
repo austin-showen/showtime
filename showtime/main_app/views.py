@@ -72,9 +72,14 @@ def add_photo(request, show_id):
 #     shows = user.seen.all()
 #     return render(request, 'shows/seen.html', {'shows': shows})
 
-class SeenCreate(LoginRequiredMixin, CreateView):
-    model = Show
-    fields = ['name', 'date', 'theater']
+
+@login_required
+def seen_create(request):
+    pass
+
+# class SeenCreate(LoginRequiredMixin, CreateView):
+#     model = Show
+#     fields = ['name', 'date', 'theater']
 
 @login_required
 def seen_add(request, show_id):
