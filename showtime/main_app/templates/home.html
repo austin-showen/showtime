@@ -2,31 +2,22 @@
 {% load static %}
 {% block content %}
 
-{% if user.is_authenticated %}
+<div class="home-container">
+    {% if user.is_authenticated %}
 
-<h1>Home</h1>
-
-{% for theater in theaters %}
-<table>
-    <div class="theater-in-table">
-        <th>{{ theater.name }}</th>
+    {% for show in shows %}
+    <div class="home-card">
+        <a href="{% url 'detail' show.id %}"><h3 class="home-title">{{show.name}}</h3></a>
+        <a href="{% url 'theaters_detail' show.theater.id%}"><h3>{{show.theater}}</h3></a>
+        <img src="{{show.playbill_url}}">
     </div>
-    <div class="show-in-table">
-        {% for show in shows %}
-        <tr>
-            <td>
-                {% if show.theater == theater %}
-                {{ show.name }}
-                {% endif %}
-            </td>
-        </tr>
-    </div>
-</table>
-{% endfor %}
-{% endfor %}
-
-{% else %}
-<h1>To use ShowTime, please <a href="{% url 'signup' %}">Sign Up</a> or <a href="{% url 'login' %}">Log In.</a></h1>
-{% endif %}
+    {% empty %}
+    <h1>No shows currently available.</h1>
+    {% endfor %}
+    
+    {% else %}
+    <h1>To use ShowTime, please <a href="{% url 'signup' %}">Sign Up</a> or <a href="{% url 'login' %}">Log In.</a></h1>
+    {% endif %}
+</div>
 
 {% endblock %}
