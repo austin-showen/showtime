@@ -33,7 +33,8 @@ def shows_index(request):
 @login_required
 def shows_detail(request, show_id):
     show = Show.objects.get(id=show_id)
-    return render(request, "shows/detail.html", {"show": show})
+    reviews = Review.objects.filter(show=show_id)
+    return render(request, "shows/detail.html", {"show": show, "reviews": reviews})
 
 
 def signup(request):
