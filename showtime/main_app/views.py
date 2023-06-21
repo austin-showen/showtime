@@ -72,6 +72,9 @@ def add_photo(request, show_id):
 #     shows = user.seen.all()
 #     return render(request, 'shows/seen.html', {'shows': shows})
 
+class SeenCreate(LoginRequiredMixin, CreateView):
+    model = Show
+    fields = ['name', 'date', 'theater']
 
 @login_required
 def seen_add(request, show_id):
@@ -113,7 +116,7 @@ def wishlist_delete(request, show_id):
 
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
-    fields = ['name', 'theater', 'date']
+    fields = ['name', 'date', 'theater']
     success_url = '/shows/index'
 
     def form_valid(self, form):
