@@ -18,6 +18,7 @@ class Show(models.Model):
     date = models.DateField('Show Date')
     seen = models.ManyToManyField(User, related_name='seen')
     wishlist = models.ManyToManyField(User, related_name='wishlist')
+    
 
     def __str__(self):
         return f"{self.name} ({self.id})"
@@ -46,4 +47,4 @@ class Review(models.Model):
         return f"Thanks for Reviewing {self.show_id} on {self.date}"
 
     def get_absolute_url(self):
-        return reverse('detail', kwargs={self.show_id})
+        return reverse('detail', kwargs={'show_id':self.show_id})

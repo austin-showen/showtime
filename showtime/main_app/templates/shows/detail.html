@@ -2,5 +2,22 @@
 
 <h1>{{ show.name }}</h1>
 
+<div class="col s6">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for review in review.shows %}
+        <tr>
+          <td>{{review.date}}</td>
+          <td>{{review.description}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
 
 {% endblock %}
