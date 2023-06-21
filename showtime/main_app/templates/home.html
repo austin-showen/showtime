@@ -9,7 +9,7 @@
     <div class="home-card">
         <a href="{% url 'detail' show.id %}"><h3 class="home-title">{{show.name}}</h3></a>
         <a href="{% url 'detail' show.id %}"><h3>{{show.theater}}</h3></a>
-        <img src="{{show.playbill_url}}">
+        <a href="{% url 'detail' show.id %}"><img src="{{show.playbill_url}}"></a>
     </div>
     {% empty %}
     <h1>No shows currently available.</h1>
