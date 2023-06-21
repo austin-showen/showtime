@@ -135,6 +135,8 @@ a.linktext {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 18vw;
   margin: 50px;
   border: 1px solid black;
