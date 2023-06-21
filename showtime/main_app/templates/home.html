@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 
+{% if user.is_authenticated %}
+
 <h1>Home</h1>
 
 {% for theater in theaters %}
@@ -13,12 +15,18 @@
         {% for show in shows %}
         <tr>
             <td>
+                {% if show.theater == theater %}
                 {{ show.name }}
+                {% endif %}
             </td>
         </tr>
     </div>
 </table>
 {% endfor %}
 {% endfor %}
+
+{% else %}
+<h1>To use ShowTime, please <a href="{% url 'signup' %}">Sign Up</a> or <a href="{% url 'login' %}">Log In.</a></h1>
+{% endif %}
 
 {% endblock %}
