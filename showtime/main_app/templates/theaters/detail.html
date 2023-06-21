@@ -2,11 +2,13 @@
 {% block content %}
 
 <h1>{{ theater.name }}</h1>
-<h2>Shows at this location:</h2>
+<h2>Current Show:</h2>
 {% for show in shows %}
-  <h2><a href="{% url 'detail' show.id %}">{{show.name}}</a></h2>
+<h2><a href="{% url 'detail' show.id %}">{{show.name}}</a></h2>
 {% empty %}
-  <h2>None!</h2>
+<h2>None!</h2>
 {% endfor %}
+
+
 
 {% endblock %}

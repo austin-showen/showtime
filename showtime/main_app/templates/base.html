@@ -21,7 +21,7 @@
         <a href="{% url 'home' %}">
           <div class="hover-trick">
             <div class="letters" id="S">S</div>
-            <div class="hide">About</div>
+            <div class="hide">Home</div>
           </div>
         </a>
         {% if user.is_authenticated %}
@@ -90,8 +90,10 @@
         </a>
         {% else %}
         <a href="{% url 'signup' %}">
-          <div class="letters">M</div>
-          <div class="hide">Sign Up</div>
+          <div class="hover-trick">
+            <div class="letters">M</div>
+            <div class="hide">Sign Up</div>
+          </div>
         </a>
         {% endif %}
 
@@ -104,8 +106,10 @@
         </a>
         {% else %}
         <a href="{% url 'login' %}">
-          <div class="letters">E</div>
-          <div class="hide">Log In</div>
+          <div class="hover-trick">
+            <div class="letters">E</div>
+            <div class="hide">Log In</div>
+          </div>
         </a>
         {% endif %}
       </div>

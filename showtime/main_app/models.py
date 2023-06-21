@@ -18,7 +18,7 @@ class Show(models.Model):
     date = models.DateField('Show Date')
     seen = models.ManyToManyField(User, related_name='seen')
     wishlist = models.ManyToManyField(User, related_name='wishlist')
-    
+    playbill_url = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.name} ({self.id})"
