@@ -8,7 +8,7 @@
     {% for show in shows %}
     <div class="home-card">
         <a href="{% url 'detail' show.id %}"><h3 class="home-title">{{show.name}}</h3></a>
-        <a href="{% url 'theaters_detail' show.theater.id%}"><h3>{{show.theater}}</h3></a>
+        <a href="{% url 'detail' show.id %}"><h3>{{show.theater}}</h3></a>
         <img src="{{show.playbill_url}}">
     </div>
     {% empty %}
