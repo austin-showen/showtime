@@ -67,6 +67,7 @@ div.loggedOut {
   display: none;
   font-size: 4vmin;
   z-index:2;
+  margin-top: -15vmin;
 }
 
 .letters:hover {
