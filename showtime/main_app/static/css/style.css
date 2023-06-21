@@ -63,7 +63,7 @@ div.loggedOut {
 }
 
 .letters:hover {
-  display:none;
+  opacity:0;
 }
 
 .letters:hover + .hide{

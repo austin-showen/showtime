@@ -36,14 +36,6 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-
-        <div class="hover-trick">
-          <div class="letters">O</div>
-          <div class="hide"><a href="{% url 'seen_form' %}" class="linktext">I already saw...</a></div>
-        </div>
-
-
-        {% if user.is_authenticated %}
         <a href="{% url 'home' %}" class="linktext">
           <div class="hover-trick">
             <div class="letters">O</div>
@@ -71,7 +63,7 @@
             <div class="letters">T</div>
             <div class="hide">Reviews</div>
           </div>
-        </a>  
+        </a>
         {% else %}
         <div class="loggedOut">T</div>
         {% endif %}
@@ -100,7 +92,7 @@
           <div class="hide">Sign Up</div>
         </a>
         {% endif %}
-        
+
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">
           <div class="hover-trick">
