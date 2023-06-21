@@ -66,20 +66,6 @@ def add_photo(request, show_id):
             print(e)
     return redirect("detail", cat_id=cat_id)
 
-# @login_required
-# def seen_index(request):
-#     user = request.user
-#     shows = user.seen.all()
-#     return render(request, 'shows/seen.html', {'shows': shows})
-
-
-@login_required
-def seen_create(request):
-    pass
-
-# class SeenCreate(LoginRequiredMixin, CreateView):
-#     model = Show
-#     fields = ['name', 'date', 'theater']
 
 @login_required
 def seen_add(request, show_id):
@@ -95,13 +81,6 @@ def seen_delete(request, show_id):
     show = Show.objects.get(id=show_id)
     user.seen.remove(show)
     return redirect('shows_index')
-
-
-# @login_required
-# def wishlist_index(request):
-#     user = request.user
-#     shows = user.wishlist.all()
-#     return render(request, 'shows/wishlist.html', {'shows': shows})
 
 
 @login_required
@@ -122,7 +101,7 @@ def wishlist_delete(request, show_id):
 class ShowCreate(LoginRequiredMixin, CreateView):
     model = Show
     fields = ['name', 'date', 'theater']
-    success_url = '/shows/index'
+    success_url = ''
 
     def form_valid(self, form):
         form.instance.user = self.request.user
