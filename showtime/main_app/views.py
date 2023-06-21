@@ -37,6 +37,7 @@ def shows_detail(request, show_id):
     return render(request, "shows/detail.html", {"show": show, "reviews": reviews})
 
 
+
 def signup(request):
     error_message = ""
     if request.method == "POST":
