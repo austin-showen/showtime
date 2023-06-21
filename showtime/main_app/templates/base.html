@@ -8,81 +8,103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ShowTime</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 </head>
 
 <body>
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <div></div>
-        <div class="hover-trick">
-          <div class="letters" id="S">S</div>
-          <div class="hide"><a href="{% url 'home' %}">About</a></div>
-        </div>
+        <a href="{% url 'home' %}">
+          <div class="hover-trick">
+            <div class="letters" id="S">S</div>
+            <div class="hide">About</div>
+          </div>
+        </a>
         {% if user.is_authenticated %}
-
-        <div class="hover-trick">
-          <div class="letters">H</div>
-          <div class="hide"><a href="{% url 'shows_create' %}">I want to see...</a></div>
-        </div>
-
+        <a href="{% url 'shows_create' %}">
+          <div class="hover-trick">
+            <div class="letters">H</div>
+            <div class="hide">I want to see...</div>
+          </div>
+        </a>
         {% else %}
         <div class="loggedOut">H</div>
         {% endif %}
+
         {% if user.is_authenticated %}
-
-        <div class="hover-trick">
-          <div class="letters">O</div>
-          <div class="hide"><a href="{% url 'home' %}" class="linktext">I already saw...</a></div>
-        </div>
-
+        <a href="{% url 'seen_form' %}" class="linktext">
+          <div class="hover-trick">
+            <div class="letters">O</div>
+            <div class="hide">I already saw...</div>
+          </div>
+        </a>
         {% else %}
         <div class="loggedOut">O</div>
         {% endif %}
+
         {% if user.is_authenticated %}
-        <div class="hover-trick">
-          <div class="letters">W</div>
-          <div class="hide"><a href="{% url 'shows_index' %}">My List</a></div>
-        </div>
+        <a href="{% url 'shows_index' %}">
+          <div class="hover-trick">
+            <div class="letters">W</div>
+            <div class="hide">My List</div>
+          </div>
+        </a>
         {% else %}
         <div class="loggedOut">W</div>
         {% endif %}
+
         {% if user.is_authenticated %}
-        <div class="hover-trick">
-          <div class="letters">T</div>
-          <div class="hide"><a href="{% url 'reviews_add' %}">Reviews</a></div>
-        </div>
+        <a href="{% url 'home' %}">
+          <div class="hover-trick">
+            <div class="letters">T</div>
+            <div class="hide">Reviews</div>
+          </div>
+        </a>  
         {% else %}
         <div class="loggedOut">T</div>
         {% endif %}
+
         {% if user.is_authenticated %}
-        <div class="hover-trick">
-          <div class="letters">I</div>
-          <div class="hide"><a href="{% url 'home' %}">Theatre History</a></div>
-        </div>
+        <a href="{% url 'home' %}">
+          <div class="hover-trick">
+            <div class="letters">I</div>
+            <div class="hide">Theatre History</div>
+          </div>
+        </a>
         {% else %}
         <div class="loggedOut">I</div>
         {% endif %}
+
         {% if user.is_authenticated %}
-        <div class="hover-trick">
+        <a href="{% url 'home' %}">
+          <div class="hover-trick">
+            <div class="letters">M</div>
+            <div class="hide">About the Developers</div>
+          </div>
+        </a>
+        {% else %}
+        <a href="{% url 'signup' %}">
           <div class="letters">M</div>
-          <div class="hide"><a href="{% url 'home' %}">About the Developers</a></div>
-        </div>
-        {% else %}
-        <div class="letters">M</div>
-        <div class="hide"><a href="{% url 'signup' %}">Sign Up</a></div>
+          <div class="hide">Sign Up</div>
+        </a>
         {% endif %}
+        
         {% if user.is_authenticated %}
-        <div class="hover-trick">
-          <div class="letters">E</div>
-          <div class="hide"><a href="{% url 'logout' %}">Logout</a></div>
-        </div>
+        <a href="{% url 'logout' %}">
+          <div class="hover-trick">
+            <div class="letters">E</div>
+            <div class="hide">Logout</div>
+          </div>
+        </a>
         {% else %}
-        <div class="letters">E</div>
-        <div class="hide"><a href="{% url 'login' %}">Log In</a></div>
+        <a href="{% url 'login' %}">
+          <div class="letters">E</div>
+          <div class="hide">Log In</div>
+        </a>
         {% endif %}
       </div>
     </nav>

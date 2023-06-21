@@ -22,6 +22,9 @@ class Show(models.Model):
     def __str__(self):
         return f"{self.name} ({self.id})"
 
+    def get_absolute_url(self):
+        return reverse('shows_index')
+
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)

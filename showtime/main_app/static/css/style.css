@@ -3,6 +3,8 @@ body {
   min-height: 100vh;
   flex-direction: column;
   margin: 0px;
+  font-family: 'PT Serif', serif;
+
 }
 
 main {
@@ -23,34 +25,42 @@ footer.page-footer {
   width: 100vw;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 10px gray;
+  height: 20vmin;
 }
 
 div.nav-wrapper, a {
   display: flex;
   color: black;
   text-decoration: none;
-  /* font-size: 15vmin; */
   justify-content: space-around;
   align-items: center;
   text-align: center;
 }
+
 .letters {
   font-size: 12vmin;
   height: 15vmin;
   width: 15vmin;
   justify-content: center;
   text-align: center;
-  
+  font-weight: 800;
 }
-a {
+
+/* a {
   height: 15vmin;
   width: 15vmin;
-}
+} */
+
 div.loggedOut {
-  font-size: 15vmin;
+  font-size: 12vmin;
   height: 15vmin;
   width: 15vmin;
   justify-content: center;
+}
+
+.loggedOut {
+  font-weight: 800;
 }
 
 .hide {
@@ -58,19 +68,21 @@ div.loggedOut {
   font-size: 4vmin;
   z-index:2;
 }
+
 .letters:hover {
   display:none;
-  height: 15vmin;
-  width: 15vmin;
-  background-color: burlywood;
 }
+
 .letters:hover + .hide{
-  display:block;
+  display: flex;
   height: 15vmin;
   width: 15vmin;
+  justify-content: center;
+  align-items: center;
 }
+
 .hover-trick {
-  position:relative;
+  position: relative;
   z-index: 3;
 }
 
@@ -81,4 +93,31 @@ a.linktext {
 .table-of-shows {
   display: flex;
   flex-wrap: wrap;
+}
+
+.index-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.index-container table {
+  text-align: center;
+}
+
+.index-container th {
+  font-size: 24px;
+  padding: 20px 10px;
+}
+
+.index-container td {
+  padding: 10px;
+}
+
+.index-container a {
+  height: auto;
+  width: auto;
+  margin: -20px 0 0 0;
+  color: darkgray;
 }
