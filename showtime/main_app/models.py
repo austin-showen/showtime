@@ -40,4 +40,7 @@ class Review(models.Model):
     show = models.ForeignKey(Show, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.get_review_display()} on {self.date}"
+        return f"Thanks for Reviewing {self.show_id} on {self.date}"
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={self.show_id})
