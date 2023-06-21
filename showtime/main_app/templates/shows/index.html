@@ -13,6 +13,7 @@
         <h3><a href="{% url 'detail' show.id %}">{{show.name}}</a></h3>
       <td><a href="{% url 'create_review' %}">Add a Review</a></td>
       <td><a href="{% url 'seen_delete' show.id %}">X</a></td>
+
     </tr>
     {% empty %}
     <tr>

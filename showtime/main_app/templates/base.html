@@ -52,10 +52,10 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <a href="{% url 'home' %}">
+        <a href="{% url 'theaters_index' %}">
           <div class="hover-trick">
             <div class="letters">I</div>
-            <div class="hide">Theatre History</div>
+            <div class="hide">All Theaters</div>
           </div>
         </a>
         {% else %}
