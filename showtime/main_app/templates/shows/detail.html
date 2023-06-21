@@ -1,6 +1,28 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block content %}
 
-<h1>{{ show.name }}</h1>
+
+<title>{{ show.theater }}</title>
+
+<h1>{{ show.theater }}</h1>
+
+<h3>Current Show: </h3>
+<h2><a href="{% url 'detail' show.id %}">{{ show.name }}</a></h2>
+<form action="{% url 'seen_add' show.id %}" method="POST">
+  {% csrf_token %}
+  <button type="submit" class="btn">Add to 'Seen List'</button>
+</form>
+<form action="{% url 'wishlist_add' show.id %}" method="POST">
+  {% csrf_token %}
+  <button type="submit" class="btn">Add to 'Wish List'</button>
+</form>
+<br>
+<h3>Address: </h3>
+<h2>{{ show.theater.location }}</h2>
+
+<h3>Box Office Hours:</h3>
+<h2>Monday through Saturday: 10 am to 8:30 pm</h2>
+<h2>Sunday: Noon to 6 pm</h2>
 
 
 {% endblock %}
