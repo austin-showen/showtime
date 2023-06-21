@@ -23,18 +23,22 @@
           <div class="hide"><a href="{% url 'home' %}">About</a></div>
         </div>
         {% if user.is_authenticated %}
+
         <div class="hover-trick">
           <div class="letters">H</div>
           <div class="hide"><a href="{% url 'shows_create' %}">I want to see...</a></div>
         </div>
+
         {% else %}
         <div class="loggedOut">H</div>
         {% endif %}
         {% if user.is_authenticated %}
+
         <div class="hover-trick">
           <div class="letters">O</div>
           <div class="hide"><a href="{% url 'home' %}" class="linktext">I already saw...</a></div>
         </div>
+
         {% else %}
         <div class="loggedOut">O</div>
         {% endif %}
