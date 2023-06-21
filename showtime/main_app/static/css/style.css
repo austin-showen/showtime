@@ -154,10 +154,6 @@ a.linktext {
   color: black;
 }
 
-
-a {
-  text-decoration: none;
-
 .theater-shows {
   display: flex;
   justify-content: center;
