@@ -21,14 +21,16 @@
         <a href="{% url 'home' %}">
           <div class="hover-trick">
             <div class="letters" id="S">S</div>
-            <div class="hide">Home</div>
+            <div class="hide"></div>
           </div>
         </a>
         {% if user.is_authenticated %}
-        <a href="{% url 'shows_create' %}">
+
+        <a href="{% url 'home' %}" class="linktext">
+
           <div class="hover-trick">
             <div class="letters">H</div>
-            <div class="hide">I want to see...</div>
+            <div class="hide">Home</div>
           </div>
         </a>
         {% else %}
@@ -36,12 +38,10 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-
-        <a href="{% url 'home' %}" class="linktext">
-
+        <a href="{% url 'shows_index' %}">
           <div class="hover-trick">
             <div class="letters">O</div>
-            <div class="hide">I already saw...</div>
+            <div class="hide">My List</div>
           </div>
         </a>
         {% else %}
@@ -49,10 +49,10 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <a href="{% url 'shows_index' %}">
+        <a href="{% url 'create_review' %}">
           <div class="hover-trick">
             <div class="letters">W</div>
-            <div class="hide">My List</div>
+            <div class="hide">Add a Review</div>
           </div>
         </a>
         {% else %}
@@ -60,10 +60,10 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <a href="{% url 'create_review' %}">
+        <a href="{% url 'theaters_index' %}">
           <div class="hover-trick">
             <div class="letters">T</div>
-            <div class="hide">Add a Review</div>
+            <div class="hide">All Theaters</div>
           </div>
         </a>
         {% else %}
@@ -71,27 +71,16 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <a href="{% url 'theaters_index' %}">
-          <div class="hover-trick">
-            <div class="letters">I</div>
-            <div class="hide">All Theaters</div>
-          </div>
-        </a>
-        {% else %}
-        <div class="loggedOut">I</div>
-        {% endif %}
-
-        {% if user.is_authenticated %}
         <a href="{% url 'about' %}">
           <div class="hover-trick">
-            <div class="letters">M</div>
+            <div class="letters">I</div>
             <div class="hide">About the Developers</div>
           </div>
         </a>
         {% else %}
         <a href="{% url 'signup' %}">
           <div class="hover-trick">
-            <div class="letters">M</div>
+            <div class="letters">I</div>
             <div class="hide">Sign Up</div>
           </div>
         </a>
@@ -100,18 +89,24 @@
         {% if user.is_authenticated %}
         <a href="{% url 'logout' %}">
           <div class="hover-trick">
-            <div class="letters">E</div>
+            <div class="letters">M</div>
             <div class="hide">Logout</div>
           </div>
         </a>
         {% else %}
         <a href="{% url 'login' %}">
           <div class="hover-trick">
-            <div class="letters">E</div>
+            <div class="letters">M</div>
             <div class="hide">Log In</div>
           </div>
         </a>
         {% endif %}
+        <a href="{% url 'home' %}">
+          <div class="hover-trick">
+            <div class="letters" id="E">E</div>
+            <div class="hide"></div>
+          </div>
+        </a>
       </div>
     </nav>
   </header>
