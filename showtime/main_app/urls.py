@@ -17,7 +17,7 @@ urlpatterns = [
      path('theaters/', views.theaters_index, name='theaters_index'),
      path('theaters/<int:theater_id>', views.theaters_detail, name='theaters_detail'),
      path('shows/create_review/', views.ReviewCreate.as_view(), name='create_review'),
-     path('shows/<int:pk>/update_review', views.ReviewUpdate.as_view(), name='reviews_update'),
-     path('shows/<int:pk>/delete_review', views. ReviewDelete.as_view(), name='reviews_delete'),
+     path('shows/<int:review_id>/update_review', views.ReviewUpdate.as_view(), name='reviews_update'),
+     path('shows/<int:review_id>/delete_review', views.delete_review, name='reviews_delete'),
      path('about/', views.about, name='about'),
 ]

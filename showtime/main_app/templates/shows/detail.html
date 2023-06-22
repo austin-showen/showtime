@@ -50,9 +50,9 @@
   <div class="card">
     <div class="card-content">
       <span class="card-title"> {{ review }}</span>
-      <p>{{review.description | linebreaks }}</p>
-      <a href="{% url 'reviews_update' show.id review.id %}" method="POST">Edit</a>
-      <a href="{% url 'reviews_delete' show.id review.id %}" method="DELETE">Delete</a>
+      <p> Description: {{review.description | linebreaks }}</p>
+      <a href="{% url 'reviews_delete' review.id %}">Delete Review</a>
+      <a href="{% url 'reviews_update' review.id %}">Update Review</a>
     </div>
 
   </div>
