@@ -142,13 +142,14 @@ class ReviewCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class ReviewUpdate(LoginRequiredMixin, UpdateView):
+class ReviewUpdate(LoginRequiredMixin, CreateView):
     model = Review
-    fields = ['date', 'description', 'show']
+    fields = '__all__'
 
-class ReviewDelete(LoginRequiredMixin, DeleteView):
-    model = Review
-    success_url = 'shows/<int:show_id>/'
+def delete_review(request, review_id):
+    review = Review.objects.get(id=review_id)
+    review.delete()
+    return redirect("detail", show_id=review.show.id)
 
 def about(request):
     return render(request, 'about.html')
