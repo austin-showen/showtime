@@ -194,3 +194,18 @@ a.linktext {
   align-items: center;
   flex-direction: column;
 }
+
+.btn {
+  background-color: lightgray;
+  height: 30px;
+  width: 150px;
+  border: 1px solid black;
+}
+
+.btn:hover {
+  background-color: #fce300;
+}
+
+.review .btn {
+  margin: 30px 135px;
+}
