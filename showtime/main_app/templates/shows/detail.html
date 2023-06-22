@@ -1,40 +1,49 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <title>{{ show.theater }}</title>
 
-<h1>{{ show.theater }}</h1>
+<div class="detail-container">
+  <div class="detail-main">
+    <h1>{{ show.theater }}</h1>
 
-<h3>Current Show: </h3>
-<h2><a href="{% url 'detail' show.id %}">{{ show.name }}</a></h2>
-<form action="{% url 'seen_add' show.id %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" class="btn">Add to 'Seen List'</button>
-</form>
-<form action="{% url 'wishlist_add' show.id %}" method="POST">
-  {% csrf_token %}
-  <button type="submit" class="btn">Add to 'Wish List'</button>
-</form>
-<br>
-<h3>Address: </h3>
-<h2>{{ show.theater.location }}</h2>
+    <h3>Current Show: </h3>
+    <h2><a href="{% url 'detail' show.id %}">{{ show.name }}</a></h2>
+    <form action="{% url 'seen_add' show.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn">Add to 'Seen List'</button>
+    </form>
+    <form action="{% url 'wishlist_add' show.id %}" method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn">Add to 'Wish List'</button>
+    </form>
+    <div class="upload-photo">
 
-<h3>Box Office Hours:</h3>
-<h2>Monday through Saturday: 10 am to 8:30 pm</h2>
-<h2>Sunday: Noon to 6 pm</h2>
+    </div>
+    <br>
+  </div>
+  <div class="detail-left">
+    <h3>Address: </h3>
+    <h2>{{ show.theater.location }}</h2>
 
-<h3>Rush:</h3>
-<h3>Lottery:</h3>
-<h3>Standing:</h3>
-
-{% for review in reviews %}
-<div class="card">
-  <div class="card-content">
-    <span class="card-title"> {{ review }}</span>
-    <p> Description: {{review.description | linebreaks }}</p>
+    <h3>Box Office Hours:</h3>
+    <h2>Monday through Saturday: 10 am to 8:30 pm</h2>
+    <h2>Sunday: Noon to 6 pm</h2>
+  </div>
+  <div class="detail-right">
+    <h3>Rush:</h3>
+    <h3>Lottery:</h3>
+    <h3>Standing:</h3>
   </div>
 
+  {% for review in reviews %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title"> {{ review }}</span>
+      <p> Description: {{review.description | linebreaks }}</p>
+    </div>
+
+  </div>
 </div>
 {% empty %}
 No reviews yet!
