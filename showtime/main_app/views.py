@@ -66,7 +66,7 @@ def add_photo(request, show_id):
         except Exception as e:
             print("An error occurred uploading file to S3")
             print(e)
-    return redirect("detail", cat_id=cat_id)
+    return redirect("detail", show_id=show_id)
 
 
 @login_required
