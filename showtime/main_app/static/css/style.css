@@ -4,6 +4,7 @@ body {
   flex-direction: column;
   margin: 0px;
   font-family: 'PT Serif', serif;
+  background-color: #f5f5f5;
 }
 
 main {
@@ -18,7 +19,7 @@ footer.page-footer {
 .nav-wrapper {
   display: flex;
   flex-direction: row;
-  background-color: yellow;
+  background-color: #fce300;
   margin:0;
   justify-content: center;
   width: 100%;
