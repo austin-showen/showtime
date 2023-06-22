@@ -24,19 +24,22 @@
 <h2>Monday through Saturday: 10 am to 8:30 pm</h2>
 <h2>Sunday: Noon to 6 pm</h2>
 
+<h3>Rush:</h3>
+<h3>Lottery:</h3>
+<h3>Standing:</h3>
 
 {% for review in reviews %}
 <div class="card">
-    <div class="card-content">
-        <span class="card-title"> {{ review }}</span>
-        <p> Description: {{review.description | linebreaks }}</p>
-    </div>
-    
+  <div class="card-content">
+    <span class="card-title"> {{ review }}</span>
+    <p> Description: {{review.description | linebreaks }}</p>
+  </div>
+
 </div>
 {% empty %}
 No reviews yet!
 {% endfor %}
-  
+
 
 
 
