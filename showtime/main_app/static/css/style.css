@@ -96,6 +96,23 @@ a.linktext {
   flex-wrap: wrap;
 }
 
+.login-prompt {
+  margin-top: 100px;
+}
+
+.login-prompt a {
+  color: #333333;
+}
+
+.login-prompt a:hover {
+  color: lightgray;
+}
+
+.login .btn {
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
 .index-container {
   display: flex;
   width: 100%;
@@ -214,6 +231,7 @@ a.linktext {
 .review .btn {
   margin: 30px 135px;
 }
+
 #underline {
   text-decoration: underline;
 }
@@ -240,4 +258,46 @@ a.linktext {
   display: flex;
   flex-direction: row;
   align-items: center;
+
+.about-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 50px;
+  width: 400px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+.about-title {
+  margin-top: -20px;
+  margin-bottom: -10px;
+}
+
+.favorite-show {
+  margin: 0 0 30px 0;
+}
+
+.about-card p {
+  padding: 20px;
+}
+
+.social-links {
+  margin-bottom: -25px;
+}
+
+.social-links a {
+  color: #666666;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  color: #fce300;
 }
