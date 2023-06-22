@@ -247,6 +247,7 @@ a.linktext {
 .responsive-img {
   max-width: 40%;
   max-height: 60%;
+  padding-top: 20px;
 }
 
 .detail-container {
