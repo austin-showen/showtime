@@ -244,6 +244,11 @@ a.linktext {
   margin:0;
 }
 
+.responsive-img {
+  max-width: 40%;
+  max-height: 60%;
+}
+
 .detail-container {
   display: flex;
   justify-content: center;
