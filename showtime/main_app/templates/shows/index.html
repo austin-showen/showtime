@@ -3,41 +3,42 @@
 
 
 <div class='index-container'>
-  <table>
-    <tr>
-      <th>Shows You've Seen</th>
-    </tr>
-    {% for show in seen %}
-    <tr>
-      <td>
-        <h3><a href="{% url 'detail' show.id %}">{{show.name}}</a></h3>
-      <td><a href="{% url 'create_review' %}">Add a Review</a></td>
-      <td><a href="{% url 'seen_delete' show.id %}">X</a></td>
-    {% empty %}
-    <tr>
-      <td>You haven't seen any shows yet!</td>
-    </tr>
-    {% endfor %}
-  </table>
+  <div class="table-container">
+    <h1>Shows You've Seen</h2>
+    <table>
+      {% for show in seen %}
+      <tr>
+        <td>
+          <h2><a href="{% url 'detail' show.id %}">{{show.name}}</a></h2>
+        </td>
+        <td><a href="{% url 'create_review' %}">Add a Review</a></td>
+        <td><a class="delete-button" href="{% url 'seen_delete' show.id %}">X</a></td>
+      {% empty %}
+      <tr>
+        <td>You haven't seen any shows yet!</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
 
-  <table>
-    <tr>
-      <th>Shows You Want to See</th>
-    </tr>
-    {% for show in wishlist %}
-    <tr>
-      <td>
-        <h3><a href="{% url 'detail' show.id %}">{{show.name}}</a>
-      </td>
-      </h3>
-      <td><a href="{% url 'wishlist_delete' show.id %}">X</a></td>
-    </tr>
-    {% empty %}
-    <tr>
-      <td>You haven't wishlisted any shows yet!</td>
-    </tr>
-    {% endfor %}
-  </table>
+  <div class="table-container">
+    <h1>Shows You Want to See</h2>
+    <table>
+      {% for show in wishlist %}
+      <tr>
+        <td>
+          <h2><a href="{% url 'detail' show.id %}">{{show.name}}</a></h2>
+        </td>
+        <td><a href="{% url 'seen_add' show.id %}">I've seen it!</a></td>
+        <td><a class="delete-button" href="{% url 'wishlist_delete' show.id %}">X</a></td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td>You haven't wishlisted any shows yet!</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
 </div>
 
 {% endblock %}
