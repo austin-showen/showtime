@@ -157,6 +157,7 @@ a.linktext {
 
 a {
   text-decoration: none;
+}
 
 .theater-shows {
   display: flex;
@@ -172,4 +173,11 @@ a {
 .theater-show-card img {
   width: 100%;
 
+}
+
+.sign-up, .login, .review {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

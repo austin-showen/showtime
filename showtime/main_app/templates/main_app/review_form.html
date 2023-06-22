@@ -2,13 +2,15 @@
 
 {% block content %}
 
-<h1>Review</h1>
-<form action="" method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="Submit!" class="btn">
-</form>
+<div class="review">
+  <h1>Review</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit!" class="btn">
+  </form>
+</div>
 
 {% endblock %}

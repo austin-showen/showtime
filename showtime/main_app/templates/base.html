@@ -24,10 +24,29 @@
             <div class="hide">Home</div>
           </div>
         </a>
-
+        {% if user.is_authenticated %}
+        <a href="{% url 'shows_create' %}">
+          <div class="hover-trick">
+            <div class="letters">H</div>
+            <div class="hide">I want to see...</div>
+          </div>
+        </a>
+        {% else %}
         <div class="loggedOut">H</div>
+        {% endif %}
 
+        {% if user.is_authenticated %}
+
+        <a href="{% url 'home' %}" class="linktext">
+
+          <div class="hover-trick">
+            <div class="letters">O</div>
+            <div class="hide">I already saw...</div>
+          </div>
+        </a>
+        {% else %}
         <div class="loggedOut">O</div>
+        {% endif %}
 
         {% if user.is_authenticated %}
         <a href="{% url 'shows_index' %}">
@@ -52,10 +71,10 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-        <a href="{% url 'theaters_index' %}">
+        <a href="{% url 'home' %}">
           <div class="hover-trick">
             <div class="letters">I</div>
-            <div class="hide">All Theaters</div>
+            <div class="hide">Theatre History</div>
           </div>
         </a>
         {% else %}
