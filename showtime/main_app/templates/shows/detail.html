@@ -27,7 +27,7 @@
         {% csrf_token %}
         <input type="file" name="photo-file">
         <br><br>
-        <button type="submit" class="btn">Upload Photo</button>
+        <button type="submit" class="btn">Upload Playbill Pic</button>
       </form>
     </div>
     <br>
@@ -50,13 +50,16 @@
   <div class="card">
     <div class="card-content">
       <span class="card-title"> {{ review }}</span>
-      <p> Description: {{review.description | linebreaks }}</p>
+      <p>{{review.description | linebreaks }}</p>
+      <a href="{% url 'reviews_update' show.id review.id %}" method="POST">Edit</a>
+      <a href="{% url 'reviews_delete' show.id review.id %}" method="DELETE">Delete</a>
     </div>
 
   </div>
 </div>
 {% empty %}
 No reviews yet!
+<td><a href="{% url 'create_review' %}">Add a Review</a></td>
 {% endfor %}
 
 
