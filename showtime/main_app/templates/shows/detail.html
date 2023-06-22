@@ -4,19 +4,24 @@
 <title>{{ show.theater }}</title>
 
 <div class="detail-container">
-  <div class="detail-main">
-    <h1>{{ show.theater }}</h1>
-
-    <h3>Current Show: </h3>
-    <h2><a href="{% url 'detail' show.id %}">{{ show.name }}</a></h2>
-    <form action="{% url 'seen_add' show.id %}" method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn">Add to 'Seen List'</button>
-    </form>
-    <form action="{% url 'wishlist_add' show.id %}" method="POST">
-      {% csrf_token %}
-      <button type="submit" class="btn">Add to 'Wish List'</button>
-    </form>
+  <div class="main-detail">
+    <div class="theater-and-show">
+      <h1 id="underline">{{ show.theater }} Theater</h1>
+      <div class="title">
+        <h3>Current Show: </h3>
+        <h2><a href="{% url 'detail' show.id %}">{{ show.name }}</a></h2>
+      </div>
+      <div class="buttons">
+        <form action="{% url 'seen_add' show.id %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn">Add to 'Seen List'</button>
+        </form>
+        <form action="{% url 'wishlist_add' show.id %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn">Add to 'Wish List'</button>
+        </form>
+      </div>
+    </div>
     <div class="upload-photo">
       {% for photo in show.photo_set.all %}
       <img class="responsive-img card-panel" src="{{photo.url}}">
@@ -26,42 +31,44 @@
       <form action="{% url 'add_photo' show.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
         {% csrf_token %}
         <input type="file" name="photo-file">
-        <br><br>
+        <br>
         <button type="submit" class="btn">Upload Playbill Pic</button>
       </form>
     </div>
-    <br>
   </div>
-  <div class="detail-left">
-    <h3>Address: </h3>
-    <h2>{{ show.theater.location }}</h2>
-
-    <h3>Box Office Hours:</h3>
-    <h2>Monday through Saturday: 10 am to 8:30 pm</h2>
-    <h2>Sunday: Noon to 6 pm</h2>
+  <br>
+  <div class="sub-detail">
+    <div class="detail-left">
+      <h3>Address: </h3>
+      <h2>{{ show.theater.location }}</h2>
+      <iframe src="{{ show.theater.maps_url }}" width="300" height="300" style="border: 1px solid black;"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h3>Box Office Hours:</h3>
+      <h2>Monday through Saturday: 10 am to 8:30 pm</h2>
+      <h2>Sunday: Noon to 6 pm</h2>
+    </div>
+    <div class="detail-right">
+      <h3>Rush:</h3>
+      <h3>Lottery:</h3>
+      <h3>Standing:</h3>
+    </div>
   </div>
-  <div class="detail-right">
-    <h3>Rush:</h3>
-    <h3>Lottery:</h3>
-    <h3>Standing:</h3>
-  </div>
-
   {% for review in reviews %}
-  <div class="card">
+  <div class="review-detail">
     <div class="card-content">
       <span class="card-title"> {{ review }}</span>
-      <p> Description: {{review.description | linebreaks }}</p>
+      <p class="review-p">{{review.description | linebreaks }}</p>
       <a href="{% url 'reviews_delete' review.id %}">Delete Review</a>
       <a href="{% url 'reviews_update' review.id %}">Update Review</a>
+      <a href="{% url 'create_review' %}">Add a Review</a>
     </div>
 
+    {% empty %}
+    No reviews yet!
+    <a href="{% url 'create_review' %}">Add a Review</a>
+    {% endfor %}
   </div>
 </div>
-{% empty %}
-No reviews yet!
-<a href="{% url 'create_review' %}">Add a Review</a>
-{% endfor %}
-
 
 
 
