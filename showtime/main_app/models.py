@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 class Theater(models.Model):
     name = models.CharField(max_length=100)
     location = models.CharField(max_length=250)
+    maps_url = models.CharField(max_length=500)
 
     def __str__(self):
         return f"{self.name}"
