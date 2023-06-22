@@ -240,6 +240,11 @@ a.linktext {
   margin:0;
 }
 
+.responsive-img {
+  max-width: 40%;
+  max-height: 60%;
+}
+
 .detail-container {
   display: flex;
   justify-content: center;
@@ -258,7 +263,7 @@ a.linktext {
   display: flex;
   flex-direction: row;
   align-items: center;
-
+}
 .about-container {
   display: flex;
   justify-content: center;
