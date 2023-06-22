@@ -2,6 +2,12 @@
 
 {% block content %}
 
+{% if object %}
+<h1>Edit <span>{{object.name}}</span></h1>
+{% else %}
+<h1>Add Review</h1>
+{% endif %}
+
 <div class="review">
   <h1>Review</h1>
   <form action="" method="POST">
