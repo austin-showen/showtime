@@ -257,11 +257,18 @@ a.linktext {
   flex-direction: column;
   width: 100%;
 }
+
 .main-detail, .sub-detail {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+}
+
+.upload-photo {
+  display: flex;
+  justify-content: center;
 }
 
 .title, .buttons {
