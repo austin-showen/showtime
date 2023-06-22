@@ -156,7 +156,11 @@ a.linktext {
   height: auto;
   width: auto;
   margin: -20px 0 0 0;
-  color: #333333;
+  color: black;
+}
+
+.index-container a:hover {
+  color: #fce300;
 }
 
 .home-container, .theater-container {
