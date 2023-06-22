@@ -74,6 +74,7 @@ def seen_add(request, show_id):
     user = request.user
     show = Show.objects.get(id=show_id)
     user.seen.add(show)
+    user.wishlist.remove(show)
     return redirect('shows_index')
 
 
@@ -89,6 +90,7 @@ def seen_delete(request, show_id):
 def wishlist_add(request, show_id):
     user = request.user
     show = Show.objects.get(id=show_id)
+    user.seen.remove(show)
     user.wishlist.add(show)
     return redirect('shows_index')
 

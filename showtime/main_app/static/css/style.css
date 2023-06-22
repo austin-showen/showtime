@@ -4,7 +4,6 @@ body {
   flex-direction: column;
   margin: 0px;
   font-family: 'PT Serif', serif;
-
 }
 
 main {
@@ -95,28 +94,40 @@ a.linktext {
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.index-container table {
+.table-container {
+  background-color: lightgray;
+  border: 1px solid black;
+  width: 600px;
+  margin: 50px;
+  padding: 30px 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.index-container th {
-  font-size: 24px;
-  padding: 20px 10px;
+.table-container h2 {
+  text-transform: uppercase;
 }
 
-.index-container td {
-  padding: 10px;
-  height: 4vmin;
+.table-container a {
+  text-decoration: none;
+}
+
+.table-container td {
+  padding-left: 40px;
+  padding-right: 40px;
+  vertical-align: center;
 }
 
 .index-container a {
   height: auto;
   width: auto;
   margin: -20px 0 0 0;
-  color: darkgray;
+  color: #333333;
 }
 
 .home-container, .theater-container {
