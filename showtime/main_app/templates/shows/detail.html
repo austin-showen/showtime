@@ -27,7 +27,7 @@
         {% csrf_token %}
         <input type="file" name="photo-file">
         <br><br>
-        <button type="submit" class="btn">Upload Photo</button>
+        <button type="submit" class="btn">Upload Playbill Pic</button>
       </form>
     </div>
     <br>
@@ -59,6 +59,7 @@
 </div>
 {% empty %}
 No reviews yet!
+<td><a href="{% url 'create_review' %}">Add a Review</a></td>
 {% endfor %}
 
 
