@@ -4,8 +4,12 @@
 
 <div class="review">
   {% if object %}
-  <h1>Edit Review</h1>
+  <h1>Edit <span>{{object.name}}</span></h1>
   {% else %}
+  <h1>Add Review</h1>
+  {% endif %}
+
+
   <h1>Review</h1>
   {% endif %}
   <form action="" method="POST">
