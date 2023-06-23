@@ -48,33 +48,19 @@
 
 ---
 
-### **_Wireframes_**
-
-#### ![A wireframe of the homepage](/assets/showtime_home.jpeg)
-
-#### The Showtime homepage
-
-#### ![A wireframe of the user's show list](/assets/user_show_list.jpeg)
-
-#### The user's list of shows
-
-#### ![A wireframe of the user's add review page](/assets/user_show_seen.jpeg)
-
-#### The form to add a review of a show
-
-#### ![A wireframe of the user's add show to wishlist page](/assets/user_show_desire.jpeg)
-
-#### The form to add a show to a user's wishlist
-
----
-
 ### Screenshots
 
-![Image]()
+![Shows Index](/assets/index.png)
+#### The homepage, displaying an index of all currently running shows.
+####
 
-![Image]()
+![Theaters Index](/assets/theaters.png)
+#### The index of all Broadway theaters with links to currently running shows.
+####
 
-![Image]()
+![Show Details](/assets/details.png)
+#### The details page for a particular show.
+####
 
 ### **_Stretch Goals (Post-MVP)_**
 
@@ -88,4 +74,4 @@
 
 ### **_Credits_**
 
-[playbill.com](https://playbill.com/)
+All Playbill images courtesy of [playbill.com](https://playbill.com/)
