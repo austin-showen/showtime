@@ -86,10 +86,7 @@ WSGI_APPLICATION = "showtime.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'NAME': 'showtime',
-        'ENGINE': 'django.db.backends.postgresql',
-    }
+    'default': env.db()
 }
 
 
