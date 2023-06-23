@@ -2,26 +2,27 @@
 {% block content %}
 
 <div class="theater-container">
-{% for theater in theaters %}
+  {% for theater in theaters %}
   <div class="theater-card">
     <h2 class="theater-title">{{theater.name}} Theater</h2>
     <h3 class="theater-title">{{theater.location|cut:", NEW YORK, NY"}}</h3>
     <br>
-    <iframe src="{{ theater.maps_url }}" width="300" height="300" style="border: 1px solid black;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <h3>Currently playing here:</h3>
+    <iframe src="{{ theater.maps_url }}" width="300" height="300" style="border: 1px solid black;" allowfullscreen=""
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <h3>Playing here:</h3>
     <div class="theater-shows">
-    {% for show in theater.show_set.all %}
+      {% for show in theater.show_set.all %}
       <div class="theater-show-card">
         <a href="{% url 'detail' show.id %}"><img src="{{show.playbill_url}}"></a>
       </div>
-    {% empty %}
+      {% empty %}
       <h3>Nothing!</h3>
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
-{% empty %}
-<h1>No theaters currently in our database!</h1>
-{% endfor %}
+  {% empty %}
+  <h1>No theaters currently in our database!</h1>
+  {% endfor %}
 </div>
 
 {% endblock %}
