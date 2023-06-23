@@ -258,7 +258,39 @@ a.linktext {
   width: 100%;
 }
 
-.main-detail, .sub-detail {
+.theater-and-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 600px;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+.theater-and-show .title a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: black;
+}
+
+.theater-and-show .buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.theater-and-show .btn {
+  background-color: darkgray;
+}
+
+.theater-and-show .btn:hover {
+  background-color: #fce300;
+}
+
+.main-detail {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -266,9 +298,41 @@ a.linktext {
   width: 100%;
 }
 
-.upload-photo {
+.sub-detail {
   display: flex;
+  background-color: lightgray;
+  border: 1px solid black;
+  margin-bottom: 30px;
+}
+
+.sub-detail div {
+  margin: 20px;
+}
+
+.detail-right {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.upload-photo {
+  width: 525px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.upload-photo img {
+  width: 170px;
+  height: auto;
+}
+
+.upload-photo .btn {
+  margin: 10px 0 40px 0;
+}
+
+.photo-display {
+  margin: 10px 0 20px 0;
 }
 
 .title, .buttons {
@@ -318,4 +382,36 @@ a.linktext {
 
 .social-links a:hover {
   color: #fce300;
+}
+
+.review-container {
+  width: 80vw;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.review-detail {
+  width: 20vw;
+  margin: 10px;
+  background-color: lightgray;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.review-detail a {
+  font-weight: 800;
+  text-decoration: none;
+  color: black;
+}
+
+.review-detail a:hover {
+  color: #666666;
+}
+
+.detail-container a {
+  color: black;
+}
+.detail-container a:hover {
+  color: #666666;
 }
