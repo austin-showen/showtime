@@ -16,11 +16,11 @@ import environ
 env = environ.Env(
     DEBUG=(bool, False),
 )
-environ.Env.read_env(BASE_DIR / '.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+environ.Env.read_env(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -85,7 +85,12 @@ WSGI_APPLICATION = "showtime.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db()
+    'default': {
+        'NAME': 'showtime',
+        'ENGINE': 'django.db.backends.postgresql',
+        'default': 'postgres://postgres:LDPgYc2Uip944Gs@showtime-db.flycast:5432',
+    }
+    # "default": env.db()
 }
 
 
