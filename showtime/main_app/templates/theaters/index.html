@@ -4,7 +4,7 @@
 <div class="theater-container">
 {% for theater in theaters %}
   <div class="theater-card">
-    <h2 class="theater-title">{{theater.name}}</h2>
+    <h2 class="theater-title">{{theater.name}} Theater</h2>
     <h3 class="theater-title">{{theater.location|cut:", NEW YORK, NY"}}</h3>
     <br>
     <iframe src="{{ theater.maps_url }}" width="300" height="300" style="border: 1px solid black;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
