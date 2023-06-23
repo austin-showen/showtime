@@ -12,6 +12,9 @@ class Theater(models.Model):
     def __str__(self):
         return f"{self.name}"
 
+    class Meta:
+        ordering = ["name"]
+
 
 class Show(models.Model):
     name = models.CharField(max_length=100)
@@ -26,6 +29,9 @@ class Show(models.Model):
 
     def get_absolute_url(self):
         return reverse('shows_index')
+
+    class Meta:
+        ordering = ["name"]
 
 
 class Photo(models.Model):
