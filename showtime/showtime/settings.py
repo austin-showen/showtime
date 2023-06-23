@@ -89,7 +89,6 @@ DATABASES = {
     'default': {
         'NAME': 'showtime',
         'ENGINE': 'django.db.backends.postgresql',
-        'default': 'postgres://postgres:LDPgYc2Uip944Gs@showtime-db.flycast:5432',
     }
 }
 
